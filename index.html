@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PortfolioHUB - Thiago Assis Lopes</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0d0d0d;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.7;
+  }
+
+  header {
+    background: #111;
+    border-bottom: 2px solid #C0006B;
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+    color: #ffffff;
+    letter-spacing: 1px;
+  }
+
+  header h1 span {
+    color: #C0006B;
+    font-style: italic;
+  }
+
+  header p {
+    color: #aaa;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .badge {
+    display: inline-block;
+    background: #C0006B;
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-top: 0.8rem;
+    letter-spacing: 0.5px;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+    color: #C0006B;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2a2a2a;
+  }
+
+  .card {
+    background: #161616;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.2rem;
+    transition: border-color 0.2s;
+  }
+
+  .card:hover {
+    border-color: #C0006B;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card h3 .num {
+    background: #C0006B;
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 700;
+  }
+
+  .card p {
+    font-size: 0.93rem;
+    color: #aaa;
+  }
+
+  .project-card {
+    background: #161616;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.2rem;
+    transition: border-color 0.2s;
+  }
+
+  .project-card:hover {
+    border-color: #C0006B;
+  }
+
+  .project-card h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-card p {
+    color: #aaa;
+    font-size: 0.93rem;
+    margin-bottom: 1rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 1rem;
+  }
+
+  .tag {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    color: #ccc;
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .btn {
+    display: inline-block;
+    background: transparent;
+    border: 1px solid #C0006B;
+    color: #C0006B;
+    padding: 7px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn:hover {
+    background: #C0006B;
+    color: #fff;
+  }
+
+  .btn + .btn {
+    margin-left: 8px;
+    border-color: #444;
+    color: #aaa;
+  }
+
+  .btn + .btn:hover {
+    background: #222;
+    color: #fff;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .stat-card {
+    background: #161616;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    padding: 1.2rem;
+    text-align: center;
+  }
+
+  .stat-card .number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #C0006B;
+  }
+
+  .stat-card .label {
+    font-size: 0.82rem;
+    color: #888;
+    margin-top: 4px;
+  }
+
+  .security-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .security-item {
+    background: #161616;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    padding: 1.2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .security-item .icon {
+    font-size: 1.4rem;
+    margin-top: 2px;
+  }
+
+  .security-item h4 {
+    color: #fff;
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+  }
+
+  .security-item p {
+    color: #888;
+    font-size: 0.8rem;
+  }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  footer {
+    border-top: 1px solid #1e1e1e;
+    text-align: center;
+    padding: 2rem;
+    color: #555;
+    font-size: 0.85rem;
+  }
+
+  footer a {
+    color: #C0006B;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Portfolio<span>HUB</span></h1>
+  <p>Thiago Assis Lopes</p>
+  <span class="badge">Implantação PortfolioHUB + IA GEMINI</span>
+</header>
+
+<main>
+
+  <!-- ESTATÍSTICAS -->
+  <section>
+    <div class="grid-2">
+      <div class="stat-card">
+        <div class="number">6</div>
+        <div class="label">Etapas concluídas</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">✓</div>
+        <div class="label">Repositório público no GitHub</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">🔒</div>
+        <div class="label">Políticas de segurança ativas</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">AI</div>
+        <div class="label">Google Gemini integrado</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETO PRINCIPAL -->
+  <section>
+    <div class="section-title">Projeto Principal</div>
+    <div class="project-card">
+      <h3>PortfolioHUB</h3>
+      <p>
+        Plataforma centralizada para exibir e gerenciar projetos e portfólios digitais.
+        Integração com GitHub para controle de versão, gestão de usuários e práticas de segurança,
+        com uso do Google Gemini como ferramenta de apoio durante toda a implantação.
+      </p>
+      <div class="tags">
+        <span class="tag">GitHub</span>
+        <span class="tag">Google Gemini</span>
+        <span class="tag">Git</span>
+        <span class="tag">Segurança</span>
+        <span class="tag">Controle de Versão</span>
+        <span class="tag">GitHub Pages</span>
+      </div>
+      <a class="btn" href="https://github.com/thiagoal9/portfolio-hub-main" target="_blank">Ver Repositório</a>
+    </div>
+  </section>
+
+  <!-- ETAPAS DA IMPLANTAÇÃO -->
+  <section>
+    <div class="section-title">Etapas da Implantação</div>
+
+    <div class="card">
+      <h3><span class="num">01</span> Planejamento da Implantação</h3>
+      <p>Definição do escopo do projeto, estruturação das fases de implantação e configuração do Google Gemini como ferramenta de apoio e guia durante todo o processo.</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="num">02</span> Configuração Inicial e Integração com GitHub</h3>
+      <p>Criação do repositório <strong style="color:#fff">portfolio-hub-main</strong> no GitHub com branch principal <strong style="color:#fff">main</strong>, adição do README.md e configuração do ambiente público para portfólio.</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="num">03</span> Gestão de Usuários e Segurança</h3>
+      <p>Implementação de autenticação em dois fatores (2FA), controle de permissões por nível de acesso, proteção de branch e revisão periódica de colaboradores.</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="num">04</span> Compartilhamento e Controle de Acesso</h3>
+      <p>Adoção de commits semânticos, uso de branches para novas funcionalidades, pull requests com descrição e uso de Issues como backlog do projeto.</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="num">05</span> Finalização da Integração e Testes</h3>
+      <p>Validação do acesso público ao repositório, teste de permissões com perfil externo, revisão do histórico de commits e verificação das proteções de branch.</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="num">06</span> Revisão Final e Apresentação</h3>
+      <p>Revisão completa de todas as etapas, preparação da apresentação em vídeo (YouTube) e documentação das soluções implementadas e desafios superados.</p>
+    </div>
+  </section>
+
+  <!-- SEGURANÇA -->
+  <section>
+    <div class="section-title">Políticas de Segurança</div>
+    <div class="security-grid">
+      <div class="security-item">
+        <div class="icon">🔐</div>
+        <div>
+          <h4>2FA Ativo</h4>
+          <p>Autenticação em dois fatores habilitada na conta GitHub</p>
+        </div>
+      </div>
+      <div class="security-item">
+        <div class="icon">🛡️</div>
+        <div>
+          <h4>Branch protegida</h4>
+          <p>Branch main protegida contra pushes diretos sem revisão</p>
+        </div>
+      </div>
+      <div class="security-item">
+        <div class="icon">👥</div>
+        <div>
+          <h4>Controle de acesso</h4>
+          <p>Colaboradores com permissão Read por padrão</p>
+        </div>
+      </div>
+      <div class="security-item">
+        <div class="icon">🤖</div>
+        <div>
+          <h4>Gemini como guia</h4>
+          <p>Google Gemini validou todas as práticas de segurança adotadas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Thiago Assis Lopes &mdash; Desafio Final: Implantação PortfolioHUB + IA GEMINI &mdash; 2026</p>
+  <p style="margin-top:8px"><a href="https://github.com/thiagoal9/portfolio-hub-main" target="_blank">github.com/thiagoal9/portfolio-hub-main</a></p>
+</footer>
+
+</body>
+</html>
